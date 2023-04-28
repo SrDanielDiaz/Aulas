@@ -31,11 +31,11 @@ const FormBasic = () => {
     <>
       <form onSubmit={handleSubmit(customSubmit)} className='form-react'>
         <div className='gap-x-5 flex items-center'>
-          <label className='flex-1'>Tipo</label>
+          <label className='flex-1'>Tipo del Aula</label>
           <input className='flex-1' required type='number' {...register('tipo')} />
         </div>
         <div className='gap-x-5 flex items-center mt-5'>
-          <label className='flex-1'>Nombre</label>
+          <label className='flex-1'>Numero del aula</label>
           <input className='flex-1' type='text' {...register('nombre')} />
         </div>
         <div className='gap-x-5 flex items-center mt-5'>
