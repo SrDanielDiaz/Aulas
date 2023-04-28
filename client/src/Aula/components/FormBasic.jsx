@@ -30,16 +30,18 @@ const FormBasic = () => {
   return (
     <>
       <form onSubmit={handleSubmit(customSubmit)} className='form-react'>
-        <div className='form-control'>
-          <label>tipo</label>
-          <input type='number' {...register('tipo')} />
+        <div className='gap-x-5 flex items-center'>
+          <label className='flex-1'>Tipo</label>
+          <input className='flex-1' required type='number' {...register('tipo')} />
         </div>
-        <div className='form-control'>
-          <label>nombre</label>
-          <input type='text' {...register('nombre')} />
+        <div className='gap-x-5 flex items-center mt-5'>
+          <label className='flex-1'>Nombre</label>
+          <input className='flex-1' type='text' {...register('nombre')} />
         </div>
-        <button type='submit'>Send</button>
-        <button type='button' onClick={() => reset()}>Reset</button>
+        <div className='gap-x-5 flex items-center mt-5'>
+          <button className='flex-1 bg-zinc-500' type='submit'>Enviar</button>
+          <button className='flex-1 bg-red-900' type='button' onClick={() => reset()}>Cancelar</button>
+        </div>
       </form>
     </>
   )

@@ -1,7 +1,6 @@
-import Rutas from './Rutas.jsx'
-import { useIndex } from '../context/IndexContext.jsx'
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useIndex } from '../context/IndexContext.jsx'
+import Rutas from './Rutas.jsx'
 function Navbar() {
   const openSVG = (
     <svg
@@ -19,21 +18,13 @@ function Navbar() {
       />
     </svg>
   )
-  const { open, setOpen, error } = useIndex()
-  useEffect(() => {
-    document.addEventListener('keydown', (event) => {
-      if (event.ctrlKey && event.key === ' ') {
-        setOpen(true)
-      }
-    })
-  }, [])
+  const { open, setOpen } = useIndex()
   return (
     <header className='bg-neutral-700 p-4 w-full fixed top-0'>
       <div className='flex items-center justify-between xl:max-w-7xl xl:mx-auto max-w-full px-[8%]'>
         <Link to='/' className='py-1'>
-          DEVDARIILL
+          AULAS
         </Link>
-        {error && <div>{error}</div>}
         <>
           <button onClick={() => setOpen(true)}> {openSVG}</button>
           <dialog
@@ -49,9 +40,3 @@ function Navbar() {
   )
 }
 export default Navbar
-// <button
-//   className="bg-neutral-500  text-black py-1 px-5 rounded-lg font-semibold"
-//   onClick={login}
-// >
-//   Login
-// </button>

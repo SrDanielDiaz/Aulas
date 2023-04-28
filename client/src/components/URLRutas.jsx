@@ -1,7 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useIndex } from '../context/IndexContext'
 function URLRutas() {
-  const navigate = useNavigate()
   const { setOpen } = useIndex()
 
   const rutas = [{ name: 'Aulas', path: '/aulas' }]
@@ -26,18 +25,6 @@ function URLRutas() {
             </Link>
           </li>
         ))}
-        <li>
-          <button
-            className='bg-neutral-500 py-2 px-4 rounded-lg'
-            onClick={() => {
-              setOpen(false)
-              navigate('/usuarios')
-            }}
-          >
-            Profile
-          </button>
-        </li>
-        <li className='mt-10' />
       </div>
     </div>
   )
