@@ -19,13 +19,13 @@ app.use(morgan(':method :url :status :response-time ms - :res[content-length]'))
 // http://localhost:5173 // front to back
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'http://192.168.1.101:5173']
+    origin: ['http://localhost:5173', 'http://192.168.3.100:5173'],
     // headers: {
     //   'Access-Control-Allow-Origin': '*',
     //   'Access-Control-Allow-Headers': '*',
     //   'Access-Control-Allow-Credentials': 'true'
     // },
-    // credentials: true
+    credentials: true
   })
 )
 // 'http://localhost:5173',
