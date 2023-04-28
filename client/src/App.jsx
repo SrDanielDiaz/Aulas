@@ -1,16 +1,17 @@
 import { Route, Routes } from 'react-router-dom'
+import AulaAdd from './Aula/pages/Add.aulas'
+import FormAulas from './Aula/pages/Form.aulas'
+import Aulas from './Aula/pages/Page.aulas'
+import AddUsuariosForm from './Usuario/pages/Add.usuarios'
+import LoginUsuario from './Usuario/pages/Login.usuarios'
+import Usuario from './Usuario/pages/Page.usuarios'
 import Layout from './components/NavbarFilter'
 import NotFound from './pages/NotFound'
-import Usuario from './Usuario/pages/Page.usuarios'
-import LoginUsuario from './Usuario/pages/Login.usuarios'
-import AddUsuariosForm from './Usuario/pages/Add.usuarios'
-import Aulas from './Aula/pages/Page.aulas'
-import AulaAdd from './Aula/pages/Add.aulas'
 // import AulaForm from './Aula/pages/Form.aulas'
 // import Cookie from './Cookie/pages/Page.cookies'
 import AddCookie from './Cookie/pages/Add.cookies'
-import Home from './pages/Page.Home'
 import { ProtectRoute } from './components/ProtectedRoute'
+import Home from './pages/Page.Home'
 import { useAuthStore } from './store/auth.js'
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
             <Route path='/aulas'>
               <Route index element={<Aulas />} />
               <Route path='add' element={<AulaAdd />} />
-              <Route path='edit/:codprod' element={<Aulas />} />
+              <Route path='edit/:id' element={<FormAulas />} />
             </Route>
             <Route path='/usuarios'>
               <Route index element={<Usuario />} />

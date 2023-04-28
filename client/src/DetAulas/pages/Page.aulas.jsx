@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import AulaCard from '../components/AulaCard'
 import { useAulas } from '../context/AulaContext'
 // import Search from "../../components/Search";
+import Search from '../components/Search'
 function Aulas() {
   const navigate = useNavigate()
   const { aulas, loadAulas } = useAulas()
@@ -24,7 +25,7 @@ function Aulas() {
       </div>
       {aulas.length > 0 ? (
         <div>
-          {/* <Search /> */}
+          <Search />
           <div className='grid grid-cols-3 text-center mt-2'>
             <p>ID</p>
             <p>Nombre</p>

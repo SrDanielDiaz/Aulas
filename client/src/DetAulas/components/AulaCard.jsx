@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 function AulaCard({ aula }) {
   const { pathname } = useLocation()
   const navigate = useNavigate()
@@ -13,7 +13,7 @@ function AulaCard({ aula }) {
         // onClick={() => (console.log(pathname))}
         onClick={() => {
           if (pathname === '/aulas') {
-            navigate(`/aulas/edit/${aula.id}`)
+            navigate(`/aulas/edit/${aula.codprod}`)
           }
         }}
       >
