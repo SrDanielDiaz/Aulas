@@ -7,9 +7,9 @@ export const createAulaRequest = async (aula) =>
 
 export const deleteAulaRequest = async (id) =>
   await axios.delete(`/aulas/${id}`)
-
-export const getAulaRequest = async (codprod) =>
-  await axios.get(`/aulas/${codprod}`)
+// arreglar despues
+export const getAulaRequest = async (id) =>
+  await axios.get(`/aulas/${id}`)
 
 export const updateAulaRequest = async (id, aula) =>
   await axios.put(`/aulas/${id}`, aula)

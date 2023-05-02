@@ -1,35 +1,37 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useAulas } from '../context/AulaContext'
 
 const FormBasic = () => {
   const { createAula } = useAulas()
-  const [aula, setAula] = useState({
-    tipo: '',
+  const [aula] = useState({
+    tipo: 1,
     nombre: ''
   })
-  useEffect(() => {
-    // const today = new Date().toJSON().slice(0, 10)
-    const loadAula = async () => {
-      setAula({
-        tipo: 1,
-        nombre: 100
-      })
-    }
-    loadAula()
-    console.log(aula)
-  }, [])
+
+  // revisar
+  // useEffect(() => {
+  //   // const today = new Date().toJSON().slice(0, 10)
+  //   const loadAula = async () => {
+  //     setAula({
+  //       tipo: 1,
+  //       nombre: 100
+  //     })
+  //   }
+  //   loadAula()
+  //   console.log(aula)
+  // }, [])
   const { register, handleSubmit, reset } = useForm({ defaultValues: aula })
   const customSubmit = (data) => {
     console.log(data)
     createAula(aula)
   }
-  useEffect(() => {
-    reset(aula)
-  }, [])
+  // useEffect(() => {
+  //   reset(aula)
+  // }, [])
   return (
     <>
-      <form onSubmit={handleSubmit(customSubmit)} className='form-react'>
+      <form onSubmit={handleSubmit(customSubmit)}>
         <div className='gap-x-5 flex items-center'>
           <label className='flex-1'>Tipo del Aula</label>
           <input className='flex-1' required type='number' {...register('tipo')} />

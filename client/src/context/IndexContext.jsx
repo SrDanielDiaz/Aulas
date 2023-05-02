@@ -1,4 +1,4 @@
-import { useContext, useState, createContext } from 'react'
+import { createContext, useContext, useState } from 'react'
 export const IndexContext = createContext()
 export const useIndex = () => {
   const context = useContext(IndexContext)
@@ -7,6 +7,7 @@ export const useIndex = () => {
   }
   return context
 }
+// eliminar
 export const IndexContextProvider = ({ children }) => {
   const [user, setUser] = useState({})
   const [error, setError] = useState('')
