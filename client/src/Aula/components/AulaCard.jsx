@@ -17,7 +17,7 @@ function AulaCard({ aula }) {
           }
         }}
       >
-        {aula.nombre}
+        {aula.id}
       </button>
       <div className='grid grid-cols-2 text-center'>
         <p>{aula.id}</p>
