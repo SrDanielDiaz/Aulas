@@ -3,7 +3,10 @@ import { useIndex } from '../context/IndexContext'
 function URLRutas() {
   const { setOpen } = useIndex()
 
-  const rutas = [{ name: 'Aulas', path: '/aulas' }]
+  const rutas = [
+    { name: 'Aulas', path: '/aulas' },
+    { name: 'DetAulas', path: '/detaulas' }
+  ]
   return (
     <div className='items-center justify-center w-full mx-auto'>
       <div
