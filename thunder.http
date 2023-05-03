@@ -1,0 +1,9 @@
+POST http://localhost:3000/api/detaulas
+Content-Type: application/json
+{
+  "aula": "1",
+  "done":0,
+  "motivo":"hola",
+}
+
+#id, aula, fechainicio, fechafinal, done, motivo
