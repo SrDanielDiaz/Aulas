@@ -2,7 +2,7 @@ import axios from '../../libs/axios'
 
 export const getDetAulasRequest = async () => await axios.get('/detaulas')
 
-export const createAulaRequest = async (detaula) =>
+export const createDetAulaRequest = async (detaula) =>
   await axios.post('/detaulas', detaula)
 
 export const deleteDetAulaRequest = async (id) =>

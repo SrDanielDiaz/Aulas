@@ -6,6 +6,7 @@ import {
   getDetAulasRequest,
   updateDetAulaRequest
 } from '../api/detaulas.api'
+
 export const DetAulaContext = createContext()
 export const useDetAulas = () => {
   const context = useContext(DetAulaContext)
@@ -14,9 +15,10 @@ export const useDetAulas = () => {
   }
   return context
 }
+
 export const DetAulaContextProvider = ({ children }) => {
   const [detAulas, setDetAulas] = useState([])
-  async function loadAulas() {
+  async function loadDetAulas() {
     const res = await getDetAulasRequest()
     setDetAulas(res.data)
   }
@@ -78,8 +80,8 @@ export const DetAulaContextProvider = ({ children }) => {
   return (
     <DetAulaContext.Provider
       value={{
-        aulas: detAulas,
-        loadAulas,
+        detAulas,
+        loadDetAulas,
         deleteAula,
         createAula,
         getAula,

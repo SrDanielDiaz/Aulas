@@ -1,39 +1,40 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import AulaCard from '../components/AulaCard'
-import { useAulas } from '../context/AulaContext'
+import DetAulaCard from '../components/DetAulaCard'
+import { useDetAulas } from '../context/DetAulaContext'
 // import Search from "../../components/Search";
-import Search from '../components/Search'
 function Aulas() {
   const navigate = useNavigate()
-  const { aulas, loadAulas } = useAulas()
+  const { detAulas, loadDetAulas } = useDetAulas()
   useEffect(() => {
-    loadAulas()
+    // const loadDetAulasFn = async () => {
+    //   await loadDetAulas()
+    // }
+    loadDetAulas()
   }, [])
   return (
     <div>
       <div className='grid grid-cols-2 justify-between items-center gap-3'>
         <p className='text-center bg-zinc-800  rounded-md p-1  font-extrabold mb-3'>
-          Aulas
+          DetAulas
         </p>
         <a
           className='bg-zinc-600 p-1 text-center rounded-md w-full border-none font-semibold mb-3 cursor-pointer'
-          onClick={() => navigate('/aulas/add')}
+          onClick={() => navigate('/detaulas/add')}
         >
-          Crear Aula
+          Crear DetAula
         </a>
       </div>
-      {aulas.length > 0 ? (
+      {detAulas.length > 0 ? (
         <div>
-          <Search />
           <div className='grid grid-cols-3 text-center mt-2'>
-            <p>ID</p>
-            <p>Nombre</p>
-            <p>Tipo</p>
+            <p>Id</p>
+            <p>Aula</p>
+            <p>Motivo</p>
             <p />
           </div>
-          {aulas.map((aula) => (
-            <AulaCard key={aula.id} aula={aula} />
+          {detAulas.map((detaula, i) => (
+            <DetAulaCard detaula={detaula} key={i} />
           ))}
         </div>
       ) : (

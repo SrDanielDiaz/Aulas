@@ -1,45 +1,66 @@
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useAulas } from '../context/AulaContext'
+import AulaCard from '../../Aula/components/AulaCard'
+import { useAulas } from '../../Aula/context/AulaContext'
+import { useDetAulas } from '../context/DetAulaContext'
 
 const FormBasic = () => {
-  const { createAula } = useAulas()
-  const [aula, setAula] = useState({
-    tipo: '',
+  const { createDetAula } = useDetAulas()
+  const [aula] = useState({
+    tipo: 1,
     nombre: ''
   })
-  useEffect(() => {
-    // const today = new Date().toJSON().slice(0, 10)
-    const loadAula = async () => {
-      setAula({
-        tipo: 1,
-        nombre: 100
-      })
-    }
-    loadAula()
-    console.log(aula)
-  }, [])
+
+  // revisar
+  // useEffect(() => {
+  //   // const today = new Date().toJSON().slice(0, 10)
+  //   const loadAula = async () => {
+  //     setAula({
+  //       tipo: 1,
+  //       nombre: 100
+  //     })
+  //   }
+  //   loadAula()
+  //   console.log(aula)
+  // }, [])
   const { register, handleSubmit, reset } = useForm({ defaultValues: aula })
   const customSubmit = (data) => {
     console.log(data)
-    createAula(aula)
+    createDetAula(aula)
   }
+  const { aulas, loadAulas } = useAulas()
   useEffect(() => {
-    reset(aula)
+    loadAulas()
   }, [])
+  // id, aula, fechainicio, fechafinal, done, motivo
   return (
     <>
-      <form onSubmit={handleSubmit(customSubmit)} className='form-react'>
-        <div className='form-control'>
-          <label>tipo</label>
-          <input type='number' {...register('tipo')} />
+      <form onSubmit={handleSubmit(customSubmit)}>
+        <label className='block text-center'>Aulas</label>
+        {aulas.length > 0 ? (
+          <div>
+            <div className='grid grid-cols-3 text-center mt-2'>
+              <p>Id</p>
+              <p>Nombre</p>
+              <p>Tipo</p>
+              <p />
+            </div>
+            {aulas.map((aula) => (
+              <AulaCard key={aula.id} aula={aula} />
+            ))}
+          </div>
+        ) : (
+          <p className='text-center'>No hay aulas</p>
+        )}
+        <div className='gap-x-5 flex items-center mt-5'>
+          <input type='time' />
+          <input type='date' />
+          <input type='time' />
         </div>
-        <div className='form-control'>
-          <label>nombre</label>
-          <input type='text' {...register('nombre')} />
+        <div className='gap-x-5 flex items-center mt-5'>
+          <button className='flex-1 bg-zinc-500' type='submit'>Enviar</button>
+          <button className='flex-1 bg-red-900' type='button' onClick={() => reset()}>Cancelar</button>
         </div>
-        <button type='submit'>Send</button>
-        <button type='button' onClick={() => reset()}>Reset</button>
       </form>
     </>
   )
