@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom'
 import AulaAdd from './Aula/pages/Add.aulas'
 import FormAulas from './Aula/pages/Form.aulas'
 import Aulas from './Aula/pages/Page.aulas'
+import DetAulaAdd from './DetAulas/pages/Add.detaulas'
+import DetAulas from './DetAulas/pages/Page.detaulas'
 import Layout from './components/NavbarFilter'
 import NotFound from './pages/NotFound'
 // import AulaForm from './Aula/pages/Form.aulas'
@@ -23,6 +25,11 @@ function App() {
           <Route path='/aulas'>
             <Route index element={<Aulas />} />
             <Route path='add' element={<AulaAdd />} />
+            <Route path='edit/:id' element={<FormAulas />} />
+          </Route>
+          <Route path='/detaulas'>
+            <Route index element={<DetAulas />} />
+            <Route path='add' element={<DetAulaAdd />} />
             <Route path='edit/:id' element={<FormAulas />} />
           </Route>
           {/* <Route path='/usuarios'>
