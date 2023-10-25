@@ -3,7 +3,7 @@ export const getAulas = async (req, res) => {
   try {
     // TODO : FIX -1 [-5:]
     const [result] = await pool.query(
-      'SELECT * FROM aulas ORDER BY nombre DESC LIMIT 5'
+      'SELECT * FROM aulas ORDER BY nombre DESC'
     )
     res.json(result)
   } catch (error) {
@@ -29,6 +29,7 @@ export const createAula = async (req, res) => {
   try {
     const keys = Object.keys(req.body)
     const values = Object.values(req.body)
+    console.log(req.body)
     const query = `INSERT INTO aulas (${keys.join(',')}) VALUES (${values
       .map((value) => '?')
       .join(',')})`
@@ -40,36 +41,6 @@ export const createAula = async (req, res) => {
     return res.status(500).json({ DBmessage: error.message })
   }
 }
-
-// export const createAula = async (req, res) => {
-//   try {
-//     const {
-//       id,
-//       codbar,
-//       nomprod,
-//       exiprod,
-//       venprod,
-//       fecapa,
-//       undfra,
-//       pvenfra,
-//     } = req.body;
-//     console.log(req.body);
-//     // if(tipcos===undefined) tipcos = "UC";
-//     // if(cosulc===undefined) cosulc = 0;
-//     // if(ivainc===undefined) ivainc = "N";
-//     // if(fecapa===undefined) fecapa = new Date().toJSON().slice(0,10).replace(/-/g,'/');
-//     // if(canven===undefined) canven = 0;
-//     const [result] = await pool.query(
-//       "INSERT INTO Aulas(id, codbar, nomprod, exiprod, venprod,  fecapa,  undfra, pvenfra) VALUES (?,?,?,?,?,?,?,?)",
-//       [id, codbar, nomprod, exiprod, venprod, fecapa, undfra, pvenfra]
-//     );
-//     res.json({
-//       result,
-//     });
-//   } catch (error) {
-//     return res.status(500).json({ DBmessage: error.message });
-//   }
-// };
 
 export const updateAula = async (req, res) => {
   try {

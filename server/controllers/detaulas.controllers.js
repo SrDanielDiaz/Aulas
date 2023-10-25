@@ -3,7 +3,7 @@ export const getDetAulas = async (req, res) => {
   try {
     // TODO : FIX -1 [-5:]
     const [result] = await pool.query(
-      'SELECT * FROM detaulas ORDER BY aula'
+      'SELECT * FROM detaulas WHERE fechafinal >= CURDATE() ORDER BY fechainicio ASC'
     )
     res.json(result)
   } catch (error) {
@@ -27,6 +27,7 @@ export const getDetAula = async (req, res) => {
 
 export const createDetAula = async (req, res) => {
   try {
+    console.log("🚀 ~ file: detaulas.controllers.js:31 ~ createDetAula ~ req.body:", req.body)
     const keys = Object.keys(req.body)
     const values = Object.values(req.body)
     const query = `INSERT INTO detaulas (${keys.join(',')}) VALUES (${values
@@ -40,32 +41,6 @@ export const createDetAula = async (req, res) => {
     return res.status(500).json({ DBmessage: error.message })
   }
 }
-
-// export const createDetAula = async (req, res) => {
-//   try {
-//     const {
-//       tipo,
-//       nombre,
-//       numero,
-//       lmiite
-//     } = req.body
-//     console.log(req.body)
-//     // if(tipo ===undefined) tipcos = "UC";
-//     // if(cosulc===undefined) cosulc = 0;
-//     // if(ivainc===undefined) ivainc = "N";
-//     // if(fecapa===undefined) fecapa = new Date().toJSON().slice(0,10).replace(/-/g,'/');
-//     // if(canven===undefined) canven = 0;
-//     const [result] = await pool.query(
-//       'INSERT INTO DetAulas( tipo, nombre, numero,limite ) VALUES (?,?,?,?)',
-//       [tipo, nombre, numero, limite]
-//     );
-//     res.json({
-//       result
-//     });
-//   } catch (error) {
-//     return res.status(500).json({ DBmessage: error.message });
-//   }
-// };
 
 export const updateDetAula = async (req, res) => {
   try {

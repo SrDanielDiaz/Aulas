@@ -3,31 +3,30 @@
 @tailwind utilities;
 
 input {
-  background-color: rgb(24, 24, 27);
+  background-color: rgb(255, 255, 255);
   border: solid 1px white;
   border-radius: 10px;
   align-items: center;
   padding: 5px;
 }
 body {
-  margin-left: auto;
-  margin-right: auto;
-  overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
-  /* font-size: 1rem; */
   font-size: clamp(11px, 1.5vw, 1.5rem);
   font-weight: 500;
   min-width: 500px;
-  background-color: #18181b;
-  color: white;
+  color: rgb(81, 149, 238);
+  color-scheme: light;
+  background-color: #f0f0f0;
 }
+
 button {
-  background-color: rgb(63, 63, 70);
+  background-color: rgb(52, 158, 219);
   border-radius: 10px;
   align-items: center;
   padding: 6px 0;
-  color: white;
+  color: rgb(255, 255, 255);
 }
+
 button:hover {
   scale: 1.02;
   filter: brightness(1.75);

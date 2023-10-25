@@ -11,19 +11,7 @@ const FormBasic = () => {
     nombre: ''
   })
 
-  // revisar
-  // useEffect(() => {
-  //   // const today = new Date().toJSON().slice(0, 10)
-  //   const loadAula = async () => {
-  //     setAula({
-  //       tipo: 1,
-  //       nombre: 100
-  //     })
-  //   }
-  //   loadAula()
-  //   console.log(aula)
-  // }, [])
-  const { register, handleSubmit, reset } = useForm({ defaultValues: aula })
+  const { handleSubmit, reset } = useForm({ defaultValues: aula })
   const customSubmit = (data) => {
     console.log(data)
     createDetAula(aula)
@@ -32,7 +20,7 @@ const FormBasic = () => {
   useEffect(() => {
     loadAulas()
   }, [])
-  // id, aula, fechainicio, fechafinal, done, motivo
+
   return (
     <>
       <form onSubmit={handleSubmit(customSubmit)}>

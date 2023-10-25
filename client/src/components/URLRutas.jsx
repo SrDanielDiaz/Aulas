@@ -22,7 +22,7 @@ function URLRutas() {
             <Link
               to={ruta.path}
               onClick={() => setOpen(false)}
-              className=' block text-center py-3 px-5 rounded-lg bg-neutral-800 '
+              className=' block text-center py-3 px-5 rounded-lg bg-sky-500 '
             >
               {ruta.name}
             </Link>

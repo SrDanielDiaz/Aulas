@@ -1,4 +1,4 @@
-import FormBasic from '../components/FormBasic'
+import FormBasic from '../components/Form.aula'
 // import FormValidation from '../components/FormValidator'
 
 function AulaForm() {

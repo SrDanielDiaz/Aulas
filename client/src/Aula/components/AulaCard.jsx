@@ -1,28 +1,21 @@
-/* eslint-disable indent */
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useAulas } from '../context/AulaContext'
 function AulaCard({ aula }) {
-  const { pathname } = useLocation()
-  const navigate = useNavigate()
-  // useEffect(() => {
-  //   console.log(aulaVenta);
-  // }, [aulaVenta]);
+  const { deleteAula } = useAulas()
+
   return (
     <div className='my-2'>
       <button
-        className='block bg-zinc-600 text-center rounded-md w-full border-none font-semibold py-1 cursor-pointer'
-        // onClick={() => (console.log(pathname))}
-        onClick={() => {
-          if (pathname === '/aulas') {
-            navigate(`/aulas/edit/${aula.id}`)
-          }
+        className='flex justify-evenly bg-sky-500 text-white text-center rounded-md w-full border-none font-semibold py-1 cursor-pointer hover:bg-red-900'
+        onClick={async() => {
+          window.confirm('¿Estas seguro de eliminar el aula?') &&
+            await deleteAula(aula.id)
         }}
       >
-        {aula.id}
+        <p className='flex-1'>{aula.id}</p>
+        <p className='flex-1'>{aula.nombre}</p>
+        <p className='flex-1'>{aula.tipo}</p>
       </button>
-      <div className='grid grid-cols-2 text-center'>
-        <p>{aula.id}</p>
-        <p>{aula.tipo}</p>
-      </div>
+
     </div>
   )
 }

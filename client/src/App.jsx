@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
 import AulaAdd from './Aula/pages/Add.aulas'
-import FormAulas from './Aula/pages/Form.aulas'
 import Aulas from './Aula/pages/Page.aulas'
 import DetAulaAdd from './DetAulas/pages/Add.detaulas'
 import DetAulas from './DetAulas/pages/Page.detaulas'
@@ -15,7 +14,8 @@ function App() {
   return (
     <>
       <Layout />
-      <div className='text-white bg-zinc-900 h-full container mx-auto max-w-prose md:max-w-5xl mt-28'>
+      <div className='h-full container mx-auto max-w-prose md:max-w-5xl mt-28 px-10'>
+        <img src='/Logo-Universidad-Mariana.png' alt='' className='opacity-5 scale-125 absolute left-1/2 -translate-x-1/2  top-[15%] md:scale-150 -z-10' />
         <Routes>
           <Route index element={<Home />} />
           {/* <Route path="/login" element={<Cookie />} /> */}
@@ -25,12 +25,10 @@ function App() {
           <Route path='/aulas'>
             <Route index element={<Aulas />} />
             <Route path='add' element={<AulaAdd />} />
-            <Route path='edit/:id' element={<FormAulas />} />
           </Route>
           <Route path='/detaulas'>
             <Route index element={<DetAulas />} />
             <Route path='add' element={<DetAulaAdd />} />
-            <Route path='edit/:id' element={<FormAulas />} />
           </Route>
           {/* <Route path='/usuarios'>
             <Route index element={<Usuario />} />

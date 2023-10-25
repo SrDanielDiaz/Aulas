@@ -1,9 +1,9 @@
-import { useContext, useState, createContext } from 'react'
+import { createContext, useContext, useState } from 'react'
 import {
-  getAulasRequest,
   createAulaRequest,
   deleteAulaRequest,
   getAulaRequest,
+  getAulasRequest,
   updateAulaRequest
 } from '../api/aulas.api'
 export const AulaContext = createContext()
@@ -44,37 +44,17 @@ export const AulaContextProvider = ({ children }) => {
       const res = await getAulaRequest(id)
       return res.data
     } catch (error) {
-      console.log(
-        '🚀 ~ file: AulaContext.jsx ~ line 67 ~ getAula~ error',
-        error
-      )
+      console.log('🚀 ~ file: AulaContext.jsx:47 ~ getAula ~ error:', error)
     }
   }
   const updateAula = async (id, aula) => {
     try {
       await updateAulaRequest(id, aula)
     } catch (error) {
-      console.log(
-        '🚀 ~ file: AulaContext.jsx ~ line 67 ~ getAula~ error',
-        error.response
-      )
+      console.log('🚀 ~ file: AulaContext.jsx:54 ~ updateAula ~ error:', error)
     }
   }
-  // const searchaulas = async (searchInput) => {
-  //   try {
-  //     // console.log(
-  //     //   "🚀 ~ file: AulaContext.jsx ~ line 106 ~ searchaulas ~ searchInput",
-  //     //   searchInput
-  //     // );
-  //     const res = await searchaulasRequest(searchInput)
-  //     setaulas(res.data)
-  //   } catch (error) {
-  //     console.log(
-  //       '🚀 ~ file: AulaContext.jsx ~ line 109 ~ searchaulas ~ error',
-  //       error
-  //     )
-  //   }
-  // }
+
   return (
     <AulaContext.Provider
       value={{

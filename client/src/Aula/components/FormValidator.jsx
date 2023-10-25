@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form'
 const FormValidation = () => {
   const { register, handleSubmit, formState: { errors }, watch } = useForm()
   const customSubmit = (data) => {
-    console.log(data)
     window.alert('¡Validación exitosa!')
   }
   const [colorInput, setColorInput] = useState('#fff7f7')

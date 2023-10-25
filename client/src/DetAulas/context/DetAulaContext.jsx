@@ -22,7 +22,7 @@ export const DetAulaContextProvider = ({ children }) => {
     const res = await getDetAulasRequest()
     setDetAulas(res.data)
   }
-  const deleteAula = async (id) => {
+  const deleteDetAula = async (id) => {
     try {
       await deleteDetAulaRequest(id)
       setDetAulas(detAulas.filter((aula) => aula.id !== id))
@@ -33,9 +33,6 @@ export const DetAulaContextProvider = ({ children }) => {
   const createAula = async (aula) => {
     try {
       await createDetAulaRequest(aula)
-      // add new Aulato the list
-      // setaulas([...aulas, res.data]);
-      // # se envian datos pero al navigate se demora en actualizar y ya se tienen los ultimos aulas en el array
     } catch (error) {
       console.log('🚀 ~ file: AulaContext.jsx:38 ~ createAula ~ error:', error)
     }
@@ -62,30 +59,42 @@ export const DetAulaContextProvider = ({ children }) => {
       )
     }
   }
-  // const searchaulas = async (searchInput) => {
-  //   try {
-  //     // console.log(
-  //     //   "🚀 ~ file: AulaContext.jsx ~ line 106 ~ searchaulas ~ searchInput",
-  //     //   searchInput
-  //     // );
-  //     const res = await searchaulasRequest(searchInput)
-  //     setaulas(res.data)
-  //   } catch (error) {
-  //     console.log(
-  //       '🚀 ~ file: AulaContext.jsx ~ line 109 ~ searchaulas ~ error',
-  //       error
-  //     )
-  //   }
-  // }
+
+  const [detAula, setDetAula] = useState({
+    fechainicio: '',
+    fechafinal: '',
+    aula: '',
+    done: false,
+    motivo: 'default'
+  })
+  const [selectedAula, setSelectedAula] = useState()
+
+  const filterDetAulas = async (searchTerm) => {
+    const { data } = await getDetAulasRequest()
+    const filteredDetaulas = data.filter((detaula) => {
+      if (typeof detaula.aula === 'number' && (detaula.aula === +searchTerm ||detaula.id === +searchTerm )) {
+        return true;
+      } else if (typeof detaula.aula === 'string' && detaula.aula.toLowerCase().includes(searchTerm)) {
+        return true;
+      }
+      return false;
+    })
+    setDetAulas(filteredDetaulas);
+  }
   return (
     <DetAulaContext.Provider
       value={{
         detAulas,
         loadDetAulas,
-        deleteAula,
+        deleteDetAula,
         createAula,
         getAula,
-        updateAula
+        updateAula,
+        detAula,
+        setDetAula,
+        selectedAula,
+        setSelectedAula,
+        filterDetAulas
       }}
     >
       {children}

@@ -20,9 +20,9 @@ function Navbar() {
   )
   const { open, setOpen } = useIndex()
   return (
-    <header className='bg-neutral-700 p-4 w-full fixed top-0'>
+    <header className='bg-sky-500 p-4 w-full fixed top-0'>
       <div className='flex items-center justify-between xl:max-w-7xl xl:mx-auto max-w-full px-[8%]'>
-        <Link to='/' className='py-1'>
+        <Link to='/' className='py-1 text-white'>
           AULAS
         </Link>
         <>

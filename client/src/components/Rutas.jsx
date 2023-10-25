@@ -20,7 +20,7 @@ function Rutas() {
   )
   const { setOpen } = useIndex()
   return (
-    <div className='flex fixed top-0 left-0 flex-col items-center justify-center gap-6 bg-neutral-700 w-full text-white '>
+    <div className='flex fixed top-0 left-0 flex-col items-center justify-center gap-6 bg-sky-500 w-full text-white'>
       <ul className='w-11/12'>
         <URLRutas />
       </ul>

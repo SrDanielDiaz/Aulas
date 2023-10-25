@@ -12,11 +12,11 @@ function Aulas() {
   return (
     <div>
       <div className='grid grid-cols-2 justify-between items-center gap-3'>
-        <p className='text-center bg-zinc-800  rounded-md p-1  font-extrabold mb-3'>
+        <p className='text-center rounded-md p-1  font-extrabold mb-3'>
           Aulas
         </p>
         <a
-          className='bg-zinc-600 p-1 text-center rounded-md w-full border-none font-semibold mb-3 cursor-pointer'
+          className='bg-sky-500 text-white p-1 text-center rounded-md w-full border-none font-semibold mb-3 cursor-pointer'
           onClick={() => navigate('/aulas/add')}
         >
           Crear Aula
@@ -25,10 +25,10 @@ function Aulas() {
       {aulas.length > 0 ? (
         <div>
           {/* <Search /> */}
-          <div className='grid grid-cols-3 text-center mt-2'>
-            <p>ID</p>
-            <p>Nombre</p>
-            <p>Tipo</p>
+          <div className='flex text-center mt-2'>
+            <p className='flex-1'>Id</p>
+            <p className='flex-1'>Nombre</p>
+            <p className='flex-1'>Tipo</p>
             <p />
           </div>
           {aulas.map((aula) => (

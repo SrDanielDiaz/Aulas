@@ -1,8 +1,18 @@
+SELECT NOW();
+SET GLOBAL time_zone = '-05:00';
+-- SET time_zone = 'Etc/GMT+5';
+SELECT @@global.time_zone;
+SELECT @@session.time_zone;
+SELECT NOW();
+
+DROP DATABASE IF EXISTS sistemas;
+CREATE DATABASE IF NOT EXISTS sistemas;
+USE sistemas;
 -- table tasks
 CREATE TABLE aulas (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     tipo INTEGER NOT NULL,
-    nombre VARCHAR(200) NOT NULL,
+    nombre VARCHAR(200) UNIQUE NOT NULL
 );
 
 CREATE TABLE detaulas (
@@ -11,6 +21,5 @@ CREATE TABLE detaulas (
     fechainicio TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     fechafinal TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     done BOOLEAN NOT NULL DEFAULT 0,
-    motivo VARCHAR(200) NOT NULL,
-    FOREIGN KEY (aula) REFERENCES aulas(id)
+    motivo VARCHAR(200) NOT NULL
 );
