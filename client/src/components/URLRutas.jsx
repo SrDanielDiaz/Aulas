@@ -13,7 +13,10 @@ function URLRutas() {
         className='justify-center items-center flex flex-col gap-y-5 overflow-y-auto overflow-x-hidden h-screen
       '
       >
-        <li className='mb-32' />
+        <li className='mb-16 bg-black' />
+         
+      <img src="logo.png" alt="" className='' />
+
         {rutas.map((ruta, i) => (
           <li
             key={i}

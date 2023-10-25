@@ -42,3 +42,7 @@ button:hover {
 /* * {
   border: solid red 1px;
 } */
+
+.balancedText {
+  text-wrap: balance
+}

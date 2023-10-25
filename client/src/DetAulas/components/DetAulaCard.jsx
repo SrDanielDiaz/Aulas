@@ -1,11 +1,11 @@
 // import { useLocation, useNavigate } from 'react-router-dom'
 
-import { useDetAulas } from '../context/DetAulaContext'
+import { useDetAulas } from '../context/DetAulaContext';
 
 // id, aula, fechainicio, fechafinal, done, motivo
 function AulaCard({ detaula }) {
   const { deleteDetAula } = useDetAulas()
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour:'numeric', minute:'numeric' };
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
   const fechainicio = new Date(detaula.fechainicio);
   const fechafinal = new Date(detaula.fechafinal);
 
@@ -26,8 +26,8 @@ function AulaCard({ detaula }) {
         <p>{detaula.motivo}</p>
       </button>
       <div className='grid grid-cols-2 text-center'>
-        <p>{fechainicio.toLocaleDateString('es-CO',options)}</p>
-        <p>{fechafinal.toLocaleDateString('es-CO',options)}</p>        
+        <p>{fechainicio.toLocaleDateString('es-CO', options)}</p>
+        <p>{fechafinal.toLocaleDateString('es-CO', options)}</p>
       </div>
     </div>
   )

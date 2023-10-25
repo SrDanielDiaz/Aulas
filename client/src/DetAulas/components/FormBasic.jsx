@@ -17,9 +17,8 @@ const FormBasic = () => {
     createDetAula(aula)
   }
   const { aulas, loadAulas } = useAulas()
-  useEffect(() => {
-    loadAulas()
-  }, [])
+
+  useEffect(() => { loadAulas() }, [])
 
   return (
     <>
@@ -33,9 +32,7 @@ const FormBasic = () => {
               <p>Tipo</p>
               <p />
             </div>
-            {aulas.map((aula) => (
-              <AulaCard key={aula.id} aula={aula} />
-            ))}
+            {aulas.map((aula) => (<AulaCard key={aula.id} aula={aula} />))}
           </div>
         ) : (
           <p className='text-center'>No hay aulas</p>
